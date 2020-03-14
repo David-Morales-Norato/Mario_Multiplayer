@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://instances/marioTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://instances/Mario/Mario.tscn" type="PackedScene" id=2]
+[ext_resource path="res://instances/misteryBlock/mistery_block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://instances/brick/brick.tscn" type="PackedScene" id=4]
+[ext_resource path="res://instances/fake_mario/fake_mario.tscn" type="PackedScene" id=5]
+
+[node name="World" type="Node"]
+
+[node name="fake_mario" parent="." instance=ExtResource( 5 )]
+position = Vector2( 80, 184 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 589825, 5, 0, 589826, 6, 0, 589835, 5, 0, 589836, 6, 0, 655361, 7, 0, 655362, 8, 0, 655370, 9, 0, 655371, 13, 0, 655372, 8, 0, 720897, 7, 0, 720898, 8, 0, 720906, 10, 0, 720907, 14, 0, 720908, 8, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mario" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, 184 )
+
+[node name="mistery_blocks" type="Node" parent="."]
+
+[node name="mistery_block" parent="mistery_blocks" instance=ExtResource( 3 )]
+position = Vector2( 88, 136 )
+frame = 3
+
+[node name="mistery_block2" parent="mistery_blocks" instance=ExtResource( 3 )]
+position = Vector2( 104, 136 )
+frame = 3
+
+[node name="mistery_block3" parent="mistery_blocks" instance=ExtResource( 3 )]
+position = Vector2( 120, 136 )
+frame = 3
+
+[node name="mistery_block4" parent="mistery_blocks" instance=ExtResource( 3 )]
+position = Vector2( 72, 136 )
+frame = 3
+
+[node name="Bricks" type="Node" parent="."]
+
+[node name="Sprite" parent="Bricks" instance=ExtResource( 4 )]
+position = Vector2( 184, 88 )

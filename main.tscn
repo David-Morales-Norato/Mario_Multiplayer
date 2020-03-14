@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://select_player.gd" type="Script" id=1]
+
+[node name="main" type="Node"]
+
+[node name="MenuButton" type="MenuButton" parent="."]
+margin_left = 55.3213
+margin_top = 157.95
+margin_right = 203.321
+margin_bottom = 177.95
+text = "Select player number"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 47.3175
+margin_top = 68.1225
+margin_right = 214.318
+margin_bottom = 92.1225
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 47.0
+margin_top = 45.0
+margin_right = 185.0
+margin_bottom = 68.0
+text = "Write peer's IP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
