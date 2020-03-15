@@ -1,35 +1,331 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://select_player.gd" type="Script" id=1]
+[ext_resource path="res://imagenes/fondo.jpg" type="Texture" id=2]
+[ext_resource path="res://imagenes/banner.png" type="Texture" id=3]
+[ext_resource path="res://imagenes/PNG/UI/buttonSmall.png" type="Texture" id=4]
+[ext_resource path="res://botones.gd" type="Script" id=5]
+[ext_resource path="res://fuentes/Fonts/Kenney Pixel.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://imagenes/volver.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 6 )
 
 [node name="main" type="Node"]
+script = ExtResource( 5 )
 
-[node name="MenuButton" type="MenuButton" parent="."]
-margin_left = 55.3213
-margin_top = 157.95
-margin_right = 203.321
-margin_bottom = 177.95
-text = "Select player number"
-script = ExtResource( 1 )
+[node name="fondo" type="NinePatchRect" parent="."]
+margin_left = 3.0
+margin_top = -4.0
+margin_right = 1366.0
+margin_bottom = 766.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="banner" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -272.884
+margin_top = -328.45
+margin_right = 323.116
+margin_bottom = -37.45
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 47.3175
-margin_top = 68.1225
-margin_right = 214.318
-margin_bottom = 92.1225
+[node name="ip_unirse" type="LineEdit" parent="."]
+visible = false
+margin_left = 819.0
+margin_top = 296.0
+margin_right = 1119.0
+margin_bottom = 336.0
+custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 47.0
-margin_top = 45.0
-margin_right = 185.0
-margin_bottom = 68.0
-text = "Write peer's IP"
+[node name="label_ip_unirse" type="Label" parent="."]
+visible = false
+margin_left = 949.0
+margin_top = 248.0
+margin_right = 1184.0
+margin_bottom = 278.0
+custom_fonts/font = SubResource( 2 )
+text = "IP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="nombre_usuario_unirse" type="LineEdit" parent="."]
+visible = false
+margin_left = 219.0
+margin_top = 296.0
+margin_right = 519.0
+margin_bottom = 336.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_usuario_unirse" type="Label" parent="."]
+visible = false
+margin_left = 245.0
+margin_top = 248.0
+margin_right = 480.0
+margin_bottom = 278.0
+custom_fonts/font = SubResource( 2 )
+text = "Nombre de usuario"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_usuario_crear" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.5
+margin_top = -90.0
+margin_right = 117.5
+margin_bottom = -60.0
+custom_fonts/font = SubResource( 2 )
+text = "Nombre de usuario"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="VBoxContainer" parent="."]
+margin_left = 87.0
+margin_top = 529.0
+margin_right = 287.0
+margin_bottom = 574.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crear_partida" type="TextureButton" parent="menu"]
+margin_right = 200.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 200, 45 )
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_crear" type="Label" parent="menu/crear_partida"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -86.7273
+margin_top = -16.1089
+margin_right = 86.2727
+margin_bottom = 13.8911
+custom_fonts/font = SubResource( 3 )
+text = "Crear partida"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="unirse_partida" type="TextureButton" parent="menu"]
+margin_top = 49.0
+margin_right = 200.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 200, 45 )
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_unirse" type="Label" parent="menu/unirse_partida"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.5
+margin_top = -15.0
+margin_right = 40.5
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 3 )
+text = "Unirse"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="salir" type="TextureButton" parent="menu"]
+margin_top = 98.0
+margin_right = 200.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 200, 45 )
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_multi" type="Label" parent="menu/salir"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.6457
+margin_top = -17.1456
+margin_right = 32.3543
+margin_bottom = 12.8544
+custom_fonts/font = SubResource( 3 )
+text = "Salir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="atras" type="TextureButton" parent="."]
+visible = false
+margin_left = 29.0
+margin_top = 27.0
+margin_right = 84.0
+margin_bottom = 82.0
+texture_normal = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crear" type="TextureButton" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 72.5
+margin_right = 100.0
+margin_bottom = 117.5
+rect_min_size = Vector2( 200, 45 )
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="crear"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -19.0
+margin_right = 37.5
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 3 )
+text = "Crear"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="unirse" type="TextureButton" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 72.5
+margin_right = 100.0
+margin_bottom = 117.5
+rect_min_size = Vector2( 200, 45 )
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="unirse"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -19.0
+margin_right = 37.5
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 3 )
+text = "Unirse"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="lista_espera" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = -71.5
+margin_right = 138.0
+margin_bottom = 71.5
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="player1" type="Label" parent="lista_espera"]
+margin_right = 276.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="player2" type="Label" parent="lista_espera"]
+margin_top = 34.0
+margin_right = 276.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="nombre_usuario_crear" type="LineEdit" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -20.0
+margin_right = 150.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+[connection signal="pressed" from="menu/crear_partida" to="." method="_on_crear_partida_pressed"]
+[connection signal="pressed" from="menu/unirse_partida" to="." method="_on_unirse_partida_pressed"]
+[connection signal="pressed" from="menu/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="atras" to="." method="_on_atras_pressed"]
+[connection signal="pressed" from="crear" to="." method="_on_crear_pressed"]
+[connection signal="pressed" from="unirse" to="." method="_on_unirse_pressed"]
