@@ -23,13 +23,12 @@ font_data = ExtResource( 6 )
 script = ExtResource( 5 )
 
 [node name="fondo" type="NinePatchRect" parent="."]
-margin_left = 3.0
-margin_top = -4.0
-margin_right = 1366.0
-margin_bottom = 766.0
+margin_left = -1.0
+margin_top = -5.0
+margin_right = 423.0
+margin_bottom = 240.0
 texture = ExtResource( 2 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -38,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -272.884
-margin_top = -328.45
-margin_right = 323.116
-margin_bottom = -37.45
+margin_left = -93.4268
+margin_top = -111.627
+margin_right = 94.5732
+margin_bottom = -19.6267
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,73 +48,42 @@ __meta__ = {
 
 [node name="ip_unirse" type="LineEdit" parent="."]
 visible = false
-margin_left = 819.0
-margin_top = 296.0
-margin_right = 1119.0
-margin_bottom = 336.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 8.0
+margin_right = 260.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.299, 0.299 )
 custom_fonts/font = SubResource( 1 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="label_ip_unirse" type="Label" parent="."]
-visible = false
-margin_left = 949.0
-margin_top = 248.0
-margin_right = 1184.0
-margin_bottom = 278.0
+[node name="label_ip_unirse" type="Label" parent="ip_unirse"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.8882
+margin_top = -47.4628
+margin_right = 90.6598
+margin_bottom = 24.5372
 custom_fonts/font = SubResource( 2 )
 text = "IP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="nombre_usuario_unirse" type="LineEdit" parent="."]
-visible = false
-margin_left = 219.0
-margin_top = 296.0
-margin_right = 519.0
-margin_bottom = 336.0
-custom_fonts/font = SubResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="label_usuario_unirse" type="Label" parent="."]
-visible = false
-margin_left = 245.0
-margin_top = 248.0
-margin_right = 480.0
-margin_bottom = 278.0
-custom_fonts/font = SubResource( 2 )
-text = "Nombre de usuario"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="label_usuario_crear" type="Label" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -117.5
-margin_top = -90.0
-margin_right = 117.5
-margin_bottom = -60.0
-custom_fonts/font = SubResource( 2 )
-text = "Nombre de usuario"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="menu" type="VBoxContainer" parent="."]
-margin_left = 87.0
-margin_top = 529.0
-margin_right = 287.0
-margin_bottom = 574.0
+margin_left = 11.5485
+margin_top = 168.241
+margin_right = 211.549
+margin_bottom = 311.241
+rect_scale = Vector2( 0.298925, 0.298925 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -199,10 +167,10 @@ __meta__ = {
 
 [node name="atras" type="TextureButton" parent="."]
 visible = false
-margin_left = 29.0
-margin_top = 27.0
-margin_right = 84.0
-margin_bottom = 82.0
+margin_left = 8.10371
+margin_top = 7.41763
+margin_right = 30.1037
+margin_bottom = 29.4176
 texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
@@ -215,14 +183,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = 72.5
-margin_right = 100.0
-margin_bottom = 117.5
+margin_left = -24.0
+margin_top = 8.0
+margin_right = 176.0
+margin_bottom = 53.0
 rect_min_size = Vector2( 200, 45 )
+rect_scale = Vector2( 0.299, 0.299 )
 texture_normal = ExtResource( 4 )
 expand = true
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
@@ -249,14 +219,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = 72.5
-margin_right = 100.0
-margin_bottom = 117.5
+margin_left = -24.0
+margin_top = 32.0
+margin_right = 176.0
+margin_bottom = 77.0
 rect_min_size = Vector2( 200, 45 )
+rect_scale = Vector2( 0.299, 0.299 )
 texture_normal = ExtResource( 4 )
 expand = true
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
@@ -281,47 +253,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -138.0
-margin_top = -71.5
-margin_right = 138.0
-margin_bottom = 71.5
+margin_left = -14.0
+margin_top = -32.0
+margin_right = 110.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.299, 0.299 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
 [node name="player1" type="Label" parent="lista_espera"]
-margin_right = 276.0
+margin_right = 124.0
 margin_bottom = 30.0
 custom_fonts/font = SubResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="player2" type="Label" parent="lista_espera"]
-margin_top = 34.0
-margin_right = 276.0
-margin_bottom = 64.0
-custom_fonts/font = SubResource( 3 )
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="nombre_usuario_crear" type="LineEdit" parent="."]
+[node name="lineEdit_playernick" type="LineEdit" parent="."]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -150.0
-margin_top = -20.0
-margin_right = 150.0
-margin_bottom = 20.0
+margin_left = 88.0
+margin_top = 104.0
+margin_right = 388.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.299, 0.299 )
 custom_fonts/font = SubResource( 1 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
+}
+
+[node name="labe_writenick" type="Label" parent="lineEdit_playernick"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.244
+margin_top = -46.7559
+margin_right = 111.756
+margin_bottom = -16.7559
+custom_fonts/font = SubResource( 2 )
+text = "Nombre de usuario"
+__meta__ = {
+"_edit_use_anchors_": false
 }
 [connection signal="pressed" from="menu/crear_partida" to="." method="_on_crear_partida_pressed"]
 [connection signal="pressed" from="menu/unirse_partida" to="." method="_on_unirse_partida_pressed"]

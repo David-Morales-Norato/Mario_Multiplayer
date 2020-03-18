@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://spr/pole/pole.png" type="Texture" id=1]
+[ext_resource path="res://spr/pole/pole_flag.png" type="Texture" id=2]
+[ext_resource path="res://instances/win_pole/win_pole.gd" type="Script" id=3]
+[ext_resource path="res://instances/win_pole/flag.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 64 )
+
+[node name="pole" type="Sprite"]
+z_index = -5
+z_as_relative = false
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -8, -128 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="flag" type="Sprite" parent="."]
+position = Vector2( -7, -110 )
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="winArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="winArea"]
+visible = false
+position = Vector2( 0, -60 )
+shape = SubResource( 1 )

@@ -14,21 +14,23 @@ func mostrar_menu():
 	$menu.show()
 
 func _on_crear_partida_pressed():
-	$label_usuario_crear.show()
-	$nombre_usuario_crear.show() # Replace with function body.
+	$lineEdit_playernick/labe_writenick.show()
+	$lineEdit_playernick.show() # Replace with function body.
 	$atras.show()
 	$crear.show()
+	$crear.set_disabled(false)
 	ocultar_menu()
 
 
 
 func _on_unirse_partida_pressed():
-	$label_usuario_unirse.show()
-	$nombre_usuario_unirse.show()
-	$label_ip_unirse.show()
+	$lineEdit_playernick/labe_writenick.show()
+	$lineEdit_playernick.show()
+	$ip_unirse/label_ip_unirse.show()
 	$ip_unirse.show()
 	$atras.show()
 	$unirse.show()
+	$unirse.set_disabled(false)
 	ocultar_menu()
 
 
@@ -43,46 +45,58 @@ func _on_atras_pressed():
 	$atras.hide()
 	
 func ocultar_unirse():
-	$label_usuario_unirse.hide()
-	$nombre_usuario_unirse.hide()
-	$label_ip_unirse.hide()
+	$lineEdit_playernick/labe_writenick.hide()
+	$lineEdit_playernick.hide()
+	$ip_unirse/label_ip_unirse.hide()
 	$ip_unirse.hide()
 	$unirse.hide()
+	$unirse.set_disabled(true)
 	
 func ocultar_crear():
-	$label_usuario_crear.hide()
-	$nombre_usuario_crear.hide()
+	$lineEdit_playernick/labe_writenick.hide()
+	$lineEdit_playernick.hide()
 	$crear.hide()
+	$crear.set_disabled(true)
 
 
 func _on_crear_pressed():
-	global.send_port= port1
-	global.get_port = port2
-	listening = true
-	udp.listen(global.get_port)
-	ocultar_crear()
-	$atras.hide()
-	global.nombre_1 = $nombre_usuario_crear.text
-	$lista_espera/player1.text = global.nombre_1
-	
+	if len($lineEdit_playernick.text) > 0:
+		global.player_name = $lineEdit_playernick.text
+		global.send_port= port1
+		global.get_port = port2
+		listening = true
+		global.player = 1
+		udp.listen(global.get_port)
+		ocultar_crear()
+		$atras.hide()
+		$lista_espera/player1.text = global.player_name
 
 func _on_unirse_pressed():
-	global.send_port= port2
-	global.get_port = port1
-	listening = true
-	udp.listen(global.get_port)
-	ocultar_unirse()
-	$atras.hide()
-	global.nombre_2 = $nombre_usuario_unirse.text
+	if len($lineEdit_playernick.text) > 0:
+		global.player_name = $lineEdit_playernick.text
+		global.send_port= port2
+		global.get_port = port1
+		global.send_ip = $ip_unirse.text
+		listening = true
+		global.player = 2
+		udp.listen(global.get_port)
+		ocultar_unirse()
+		$atras.hide()
 
 func _process(_delta):
+	var iplen = len(global.send_ip)
 	if listening:
-		udp.set_dest_address(global.send_ip,global.send_port)
-		var s = "a"
-		udp.put_packet(s.to_ascii()) 
+		#print("sendip: "+global.send_ip)
+		if iplen > 0:
+			udp.set_dest_address(global.send_ip,global.send_port)
+			var s = "a"
+			udp.put_var(s) 
 	if udp.get_available_packet_count() > 0:
-		udp.get_packet()
-		$lista_espera/player2.text = global.nombre_2
-		get_tree().change_scene("res://World.tscn")
+		udp.get_var()
+		if iplen == 0:
+			global.send_ip = udp.get_packet_ip()
+		$lista_espera/player1.text = global.player_name
+		if iplen > 0:
+			get_tree().change_scene("res://worlds/world1-1.tscn")
 
 
