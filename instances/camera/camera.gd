@@ -6,8 +6,8 @@ var mario_node
 var fake_node
 
 func _process(delta):
-	mario_node = get_parent().get_node("Mario")
-	fake_node = get_parent().get_node("fake_mario")
+	mario_node = get_parent().get_node(global.Mario)
+	fake_node = get_parent().get_node(global.fake_mario)
 	if (mario_node!=null):
 		mariopos = mario_node.get_global_position()
 	

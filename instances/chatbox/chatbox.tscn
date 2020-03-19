@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://instances/chatbox/chatLineEdit.gd" type="Script" id=1]
+[ext_resource path="res://instances/chatbox/chatboard.gd" type="Script" id=2]
+[ext_resource path="res://fuentes/Fonts/Kenney Pixel.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="chatbox" type="Node2D"]
+z_index = 10
+
+[node name="chatLineEdit" type="LineEdit" parent="."]
+margin_left = -120.0
+margin_top = 88.0
+margin_right = 52.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 2 )
+max_length = 25
+caret_blink = true
+caret_blink_speed = 0.5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chatboard" type="RichTextLabel" parent="."]
+margin_left = -120.0
+margin_top = -4.0
+margin_right = 60.0
+margin_bottom = 88.0
+custom_fonts/normal_font = SubResource( 3 )
+script = ExtResource( 2 )

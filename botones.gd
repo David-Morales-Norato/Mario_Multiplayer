@@ -86,17 +86,21 @@ func _on_unirse_pressed():
 func _process(_delta):
 	var iplen = len(global.send_ip)
 	if listening:
-		#print("sendip: "+global.send_ip)
+		$lista_espera/player1.text = "Esperando..."
+		if (global.initOK==true and global.peer_initOK==true):
+			get_tree().change_scene("res://worlds/world1-1.tscn")
+		
 		if iplen > 0:
 			udp.set_dest_address(global.send_ip,global.send_port)
-			var s = "a"
+			var s = [-1,global.player_name,global.initOK]
 			udp.put_var(s) 
 	if udp.get_available_packet_count() > 0:
-		udp.get_var()
-		if iplen == 0:
-			global.send_ip = udp.get_packet_ip()
-		$lista_espera/player1.text = global.player_name
-		if iplen > 0:
-			get_tree().change_scene("res://worlds/world1-1.tscn")
+		var s = udp.get_var()
+		if s.front() == -1:
+			global.peer_name=s[1]
+			global.initOK = true
+			global.peer_initOK = s[2]
+			if (iplen == 0):
+				global.send_ip = udp.get_packet_ip()
 
 

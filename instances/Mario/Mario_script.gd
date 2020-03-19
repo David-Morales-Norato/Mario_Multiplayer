@@ -9,32 +9,35 @@ const MAX_JUMP_LENIENCY = 5
 var FRICTION = 0.4
 var jumpLeniency = 0
 var dir = 0
-var canMove = true
+var inLevel = true #hasn't picked the flag
+var isPlayer = false
 
 var udp = PacketPeerUDP.new()
 
-
-var gibs=preload("res://instances/brick/brickgibs.tscn")
-
-
 func _ready():
 	var path = "res://spr/mario/spr_small_mario.tscn"
-	if global.player==2:
+	if (!isPlayer and global.player==1) or (isPlayer and global.player==2):
 		path = "res://spr/luigi/spr_small_luigi.tscn"
 	var spr_scn = load(path)
 	var spr = spr_scn.instance()
 	add_child(spr)
 	collision_layer = 2
+	if isPlayer:
+		$Label.text = global.player_name
+	else:
+		$Label.text = global.peer_name
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	motion.y+=GRAVITY
-	dir = 0
+
 	if is_on_floor():
 		FRICTION = 0.5
 	else:
 		FRICTION = 0.9
 	
-	if canMove == true:
+	if isPlayer:
+		dir = 0
+	if inLevel == true and isPlayer == true and global.canMove==true:
 		if Input.is_action_pressed("ui_right"):
 			var multiplier = 1
 			if motion.x < 0:
@@ -53,8 +56,6 @@ func _physics_process(delta):
 					multiplier = 0.5
 			motion.x -= accel*multiplier
 			dir =-1
-		else:
-			motion.x*=FRICTION
 		if abs(motion.x) <= 0.3:
 			motion.x = 0
 		motion.x = clamp(motion.x,-hs,hs)
@@ -70,14 +71,19 @@ func _physics_process(delta):
 		if !is_on_floor() and motion.y < 0 and !Input.is_action_pressed("ui_up"):
 			motion.y*=0.7
 	
+	
+	if dir==0 and is_on_floor():
+		motion.x*=FRICTION
 	if !is_on_floor():
 		dir = 0
 	
-	if !canMove:
+	if !inLevel:
 		dir = 1
+# warning-ignore:integer_division
 		motion.x = hs/2
 		if !is_on_floor():
 			motion.x = 0
+# warning-ignore:integer_division
 			motion.y = hs/2
 	
 	if dir == 1:
@@ -91,7 +97,7 @@ func _physics_process(delta):
 		else:
 			$sprites.play("idle")
 	else:
-		if canMove == true:
+		if inLevel == true:
 			$sprites.play("jump")
 		else:
 			$sprites.play("pole")
@@ -113,13 +119,13 @@ func _physics_process(delta):
 			y = clamp(y,camy-hview/2,camy+hview/2)
 		set_global_position(Vector2(x,y))
 		
-
-	udp.set_dest_address(global.send_ip,global.send_port)
-	var packet = [0,get_global_position(),dir,motion] #mario status
-	udp.put_var(packet)
-
-	if Input.is_action_just_pressed("ui_accept"):
-		print("Motion x: "+str(motion.x))
-		print(" is on floor: "+str(is_on_floor()))
+	if isPlayer:
+		udp.set_dest_address(global.send_ip,global.send_port)
+		var packet = [0,get_global_position(),dir,motion] #mario status
+		udp.put_var(packet)
 
 	motion = move_and_slide(motion,UPVECTOR)
+
+
+func _exit_tree():
+	udp.close()
