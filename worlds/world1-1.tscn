@@ -24,7 +24,7 @@ __meta__ = {
 }
 
 [node name="players" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2977.98, 38.1193 )
+position = Vector2( 3.31665, 160.941 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -41,76 +41,73 @@ scale = Vector2( 1, 1.21 )
 z_index = 1
 
 [node name="mistery_blocks" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="mistery_block" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 200, 136 )
-frame = 3
+frame = 1
 
 [node name="mistery_block3" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 232, 136 )
-frame = 2
+frame = 0
 
 [node name="mistery_block2" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 120, 137 )
-frame = 2
+frame = 0
 
 [node name="mistery_block4" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 216, 72 )
-frame = 2
+frame = 0
 
 [node name="mistery_block5" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 1240, 137 )
-frame = 1
+frame = 10
 
 [node name="mistery_block6" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 1496, 72 )
-frame = 0
+frame = 9
 
 [node name="mistery_block7" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 1688, 136 )
-frame = 0
+frame = 9
 
 [node name="mistery_block8" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 1736, 137 )
-frame = 0
+frame = 9
 
 [node name="mistery_block9" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 1784, 136 )
-frame = 10
+frame = 8
 
 [node name="mistery_block11" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 2056, 73 )
-frame = 10
+frame = 8
 
 [node name="mistery_block12" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 2072, 73 )
-frame = 9
+frame = 7
 
 [node name="mistery_block13" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 2712, 137 )
-frame = 8
+frame = 6
 
 [node name="mistery_block10" parent="mistery_blocks" instance=ExtResource( 5 )]
 position = Vector2( 1736, 72 )
-frame = 10
+frame = 8
 
 [node name="Bricks" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="Sprite2" parent="Bricks" instance=ExtResource( 6 )]
-position = Vector2( 184, 140 )
-offset = Vector2( -1.52588e-05, -4.00003 )
 
 [node name="Sprite3" parent="Bricks" instance=ExtResource( 6 )]
 position = Vector2( 216, 136 )
+
+[node name="Sprite33" parent="Bricks" instance=ExtResource( 6 )]
+position = Vector2( 184, 136 )
 
 [node name="Sprite4" parent="Bricks" instance=ExtResource( 6 )]
 position = Vector2( 248, 137 )
 offset = Vector2( 0, -1 )
 
 [node name="Sprite5" parent="Bricks" instance=ExtResource( 6 )]
-position = Vector2( 1224, 138 )
+position = Vector2( 1224, 137 )
 offset = Vector2( 0, -1 )
 
 [node name="Sprite6" parent="Bricks" instance=ExtResource( 6 )]
@@ -222,18 +219,24 @@ position = Vector2( 1464, 73 )
 offset = Vector2( 0, -1 )
 
 [node name="camera" parent="." instance=ExtResource( 7 )]
-editor/display_folded = true
-position = Vector2( 2893.64, 0 )
+position = Vector2( 97.4612, 102.167 )
 offset = Vector2( 0, -50 )
 
 [node name="chatbox" parent="camera" instance=ExtResource( 8 )]
+position = Vector2( -1.71289, -89.7293 )
 
 [node name="packetManager" parent="." instance=ExtResource( 9 )]
 
 [node name="Enemigos" type="Node" parent="."]
 
 [node name="carenabo" parent="Enemigos" instance=ExtResource( 10 )]
-position = Vector2( 96.6326, 163.328 )
+position = Vector2( 409.18, 183.798 )
+
+[node name="carenabo2" parent="Enemigos" instance=ExtResource( 10 )]
+position = Vector2( 524.649, 183.798 )
+
+[node name="carenabo3" parent="Enemigos" instance=ExtResource( 10 )]
+position = Vector2( 768.368, 183.798 )
 
 [node name="Castillo" parent="." instance=ExtResource( 11 )]
 position = Vector2( 3242.56, 28.8088 )
