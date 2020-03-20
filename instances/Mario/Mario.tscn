@@ -7,7 +7,7 @@
 extents = Vector2( 5, 7 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 14
+size = 10
 font_data = ExtResource( 2 )
 
 [node name="Mario" type="KinematicBody2D"]

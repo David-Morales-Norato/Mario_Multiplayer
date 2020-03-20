@@ -6,7 +6,7 @@ func _ready():
 func _physics_process(_delta):
 	var objs = $winArea.get_overlapping_bodies()
 	for obj in objs:
-		if obj.name == "Mario" or obj.name=="fake_mario":
+		if obj.name == global.Mario or obj.name==global.fake_mario:
 			if obj.inLevel == true:
 				$flag.flag = true
 				var objy = obj.get_global_position().y
