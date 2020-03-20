@@ -31,6 +31,7 @@ window/size/test_width=768
 window/size/test_height=720
 window/vsync/use_vsync=false
 window/stretch/mode="2d"
+window/2d/use_pixel_snap=true
 
 [input]
 
@@ -45,6 +46,7 @@ ui_accept={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_clear_color=Color( 0.360784, 0.580392, 0.988235, 1 )

@@ -1,26 +1,26 @@
 [gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://botones.gd" type="Script" id=1]
 [ext_resource path="res://imagenes/fondo.jpg" type="Texture" id=2]
 [ext_resource path="res://imagenes/banner.png" type="Texture" id=3]
-[ext_resource path="res://imagenes/PNG/UI/buttonSmall.png" type="Texture" id=4]
-[ext_resource path="res://botones.gd" type="Script" id=5]
-[ext_resource path="res://fuentes/Fonts/Kenney Pixel.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://imagenes/volver.png" type="Texture" id=7]
+[ext_resource path="res://fuentes/Fonts/Kenney Pixel.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://imagenes/PNG/UI/buttonSmall.png" type="Texture" id=5]
+[ext_resource path="res://imagenes/volver.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
-font_data = ExtResource( 6 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
-font_data = ExtResource( 6 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
-font_data = ExtResource( 6 )
+font_data = ExtResource( 4 )
 
 [node name="main" type="Node"]
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 
 [node name="fondo" type="NinePatchRect" parent="."]
 margin_left = -1.0
@@ -92,7 +92,7 @@ __meta__ = {
 margin_right = 200.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 200, 45 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -118,7 +118,7 @@ margin_top = 49.0
 margin_right = 200.0
 margin_bottom = 94.0
 rect_min_size = Vector2( 200, 45 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -144,7 +144,7 @@ margin_top = 98.0
 margin_right = 200.0
 margin_bottom = 143.0
 rect_min_size = Vector2( 200, 45 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -171,7 +171,7 @@ margin_left = 8.10371
 margin_top = 7.41763
 margin_right = 30.1037
 margin_bottom = 29.4176
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -189,7 +189,7 @@ margin_right = 176.0
 margin_bottom = 53.0
 rect_min_size = Vector2( 200, 45 )
 rect_scale = Vector2( 0.299, 0.299 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_group_": true,
@@ -225,7 +225,7 @@ margin_right = 176.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 200, 45 )
 rect_scale = Vector2( 0.299, 0.299 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_group_": true,
