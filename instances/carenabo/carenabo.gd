@@ -18,6 +18,7 @@ func _physics_process(delta):
 			if(obj_colisionado.is_in_group("player")): # Si colisiona contra el jugador
 				# golpear al jugador
 				if(is_on_ceiling()):
+					obj_colisionado.saltar()
 					recibe_golpe() # Si lo chocan en la cabeza muere
 				else:
 					# Si el golpea al jugador por un lado o por arriba

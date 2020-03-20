@@ -11,4 +11,4 @@ func _physics_process(_delta):
 				$flag.flag = true
 				var objy = obj.get_global_position().y
 				obj.set_global_position(Vector2(get_global_position().x-4,objy))
-			obj.inLevel = false
+				obj.end_level()

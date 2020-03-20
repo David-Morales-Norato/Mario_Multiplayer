@@ -9,14 +9,18 @@ var peer_name = ""
 const fake_mario = "fake_mario"
 const Mario = "Mario"
 var canMove = true
-
+var jugadores_que_han_finalizado = []
 var initOK = false #set this to true when initialization is done
 #(as in, the players already know each others nicks and whatnot)
 var peer_initOK = true #set this to true when peer tells they already
 #initialized
+var is_in_level = true
 
 var level_index = 0
 var worlds = [
 "res://worlds/world1-1.tscn",
 "res://worlds/world1-2.tscn"
 ]
+
+
+

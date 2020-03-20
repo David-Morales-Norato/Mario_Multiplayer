@@ -88,7 +88,7 @@ func _process(_delta):
 	if listening:
 		$lista_espera/player1.text = "Esperando..."
 		if (global.initOK==true and global.peer_initOK==true):
-			get_tree().change_scene("res://worlds/world1-1.tscn")
+			get_tree().change_scene("res://worlds/world1-2.tscn")
 		
 		if iplen > 0:
 			udp.set_dest_address(global.send_ip,global.send_port)

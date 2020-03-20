@@ -15,6 +15,7 @@ var isPlayer = false
 var udp = PacketPeerUDP.new()
 var is_dead
 func _ready():
+	print("inicio")
 	is_dead = false
 	var path = "res://spr/mario/spr_small_mario.tscn"
 	if (!isPlayer and global.player==1) or (isPlayer and global.player==2):
@@ -82,6 +83,7 @@ func _physics_process(_delta):
 		
 		if !inLevel:
 			dir = 1
+
 	# warning-ignore:integer_division
 			motion.x = hs/2
 			if !is_on_floor():
@@ -129,15 +131,20 @@ func _physics_process(_delta):
 	
 		motion = move_and_slide(motion,UPVECTOR)
 		if (get_slide_count() > 0): #Si está colisionando con algo
+			
 			var obj_colisionado = get_slide_collision(get_slide_count()-1).collider # Obtiene el objeto con el que colisiona
 			if(obj_colisionado.is_in_group("enemy")): # Si colisiona contra el enemigo
+			
 				if(is_on_wall() or is_on_ceiling()):
 					# Si el golpea al jugador por un lado o por arriba
 					# El jugador recibe un golpe
+					
 					recibe_golpe() 
 					
 				elif(is_on_floor()):
+					saltar()
 					obj_colisionado.recibe_golpe() # Si lo chocan en la cabeza muere
+
 
 func recibe_golpe():
 	var org_trans = transform.y
@@ -160,3 +167,14 @@ func recibe_golpe():
 
 func _exit_tree():
 	udp.close()
+	
+func saltar():
+	$sprites.play("jump")
+	motion.y -= 500
+
+
+func end_level():
+	inLevel = false
+	$sprites.play("run")
+	
+	udp.put_var([1]) #mario status
